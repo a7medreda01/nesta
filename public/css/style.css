@@ -460,22 +460,33 @@ body.unit-view-active .nesta-navbar .btn-lang-toggle {
   background-color: #25D366 !important;
   color: #ffffff !important;
   border: none;
-  font-weight: 600;
+  font-weight: 700;
   border-radius: var(--radius-pill);
-  padding: 0.55rem 1.25rem;
+  padding: 0.65rem 1.35rem;
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
-  transition: all 0.3s var(--ease-smooth);
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
+  transition: all 0.25s var(--ease-smooth);
   text-decoration: none;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.btn-wa-pill i {
+  font-size: 1.25rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-wa-pill:hover {
   background-color: #1EBE5D !important;
   color: #ffffff !important;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.5);
 }
 
 .btn-lang-toggle {
@@ -610,51 +621,45 @@ body.unit-view-active .nesta-navbar .btn-lang-toggle {
 /* Floating WhatsApp FAB */
 .whatsapp-fab {
   position: fixed;
-  bottom: 2rem;
-  inset-inline-end: 2rem;
-  width: 58px;
-  height: 58px;
+  bottom: 24px;
+  inset-inline-end: 24px;
+  width: 56px;
+  height: 56px;
   background-color: #25D366;
-  color: #ffffff;
+  color: #ffffff !important;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.8rem;
-  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.4);
-  z-index: 998;
+  font-size: 1.85rem;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45), 0 2px 6px rgba(0, 0, 0, 0.12);
+  z-index: 1050;
   text-decoration: none;
-  transition: all 0.3s var(--ease-smooth);
+  transition: transform 0.25s var(--ease-smooth), box-shadow 0.25s, background-color 0.25s;
+  border: none;
+}
+
+.whatsapp-fab i {
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .whatsapp-fab:hover {
   background-color: #1EBE5D;
-  color: #ffffff;
+  color: #ffffff !important;
   transform: scale(1.08) translateY(-3px);
+  box-shadow: 0 10px 28px rgba(37, 211, 102, 0.55);
 }
 
-.whatsapp-fab::before {
-  content: '';
-  position: absolute;
-  inset: -4px;
-  border-radius: 50%;
-  border: 2px solid #25D366;
-  opacity: 0.7;
-  animation: pulseFab 2.2s infinite;
-}
-
-@keyframes pulseFab {
-  0% {
-    transform: scale(1);
-    opacity: 0.8;
-  }
-  70% {
-    transform: scale(1.4);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1.4);
-    opacity: 0;
+@media (max-width: 768px) {
+  .whatsapp-fab {
+    bottom: 20px;
+    inset-inline-end: 20px;
+    width: 50px;
+    height: 50px;
+    font-size: 1.6rem;
   }
 }
 
@@ -1308,6 +1313,35 @@ html[lang="en"] .stat-number {
   height: 250px;
   overflow: hidden;
   background-color: #e9ecef;
+  cursor: pointer;
+}
+
+.unit-card-photos-badge {
+  position: absolute;
+  bottom: 0.85rem;
+  inset-inline-end: 0.85rem;
+  background: rgba(14, 103, 112, 0.88);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  z-index: 3;
+  transition: all 0.25s var(--ease-smooth);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+.unit-card-photos-badge:hover {
+  background: var(--nesta-teal-dark);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(14, 103, 112, 0.35);
 }
 
 .unit-card-img {
@@ -1471,7 +1505,7 @@ html[lang="en"] .unit-price-val {
   color: var(--nesta-wood);
 }
 
-/* Bento Gallery Grid */
+/* Bento Gallery Grid (Desktop & Tablet) */
 .bento-gallery {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
@@ -1483,7 +1517,7 @@ html[lang="en"] .unit-price-val {
   box-shadow: var(--shadow-soft);
 }
 
-@media (max-width: 991px) {
+@media (max-width: 991px) and (min-width: 768px) {
   .bento-gallery {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
@@ -1498,20 +1532,121 @@ html[lang="en"] .unit-price-val {
   }
 }
 
-@media (max-width: 576px) {
-  .bento-gallery {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    gap: 0;
-    border-radius: var(--radius-lg);
+/* Gallery Responsive Display Switching */
+@media (max-width: 767px) {
+  .desktop-unit-gallery {
+    display: none !important;
   }
-  .bento-item-large {
-    grid-column: span 1;
-    height: 250px;
+  .mobile-unit-gallery {
+    display: block !important;
   }
-  .bento-item:not(.bento-item-large) {
-    display: none;
+}
+
+@media (min-width: 768px) {
+  .mobile-unit-gallery {
+    display: none !important;
   }
+  .desktop-unit-gallery {
+    display: grid !important;
+  }
+}
+
+/* Mobile Interactive Room Gallery */
+.mobile-unit-gallery {
+  display: none;
+  margin-bottom: 2rem;
+}
+
+.mobile-gallery-stage {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  background-color: #eaeaea;
+  margin-bottom: 0.75rem;
+}
+
+.mobile-gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-gallery-badge {
+  position: absolute;
+  top: 1rem;
+  inset-inline-start: 1rem;
+  background: rgba(14, 103, 112, 0.88);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--radius-pill);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.mobile-gallery-btn-prev,
+.mobile-gallery-btn-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--nesta-ink);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+  z-index: 3;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.mobile-gallery-btn-prev { inset-inline-start: 0.75rem; }
+.mobile-gallery-btn-next { inset-inline-end: 0.75rem; }
+
+.mobile-gallery-btn-prev:active,
+.mobile-gallery-btn-next:active {
+  transform: translateY(-50%) scale(0.92);
+}
+
+.mobile-gallery-thumbs {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding: 0.25rem 0;
+  scrollbar-width: none;
+}
+.mobile-gallery-thumbs::-webkit-scrollbar { display: none; }
+
+.mobile-gallery-thumb {
+  width: 62px;
+  height: 48px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2.5px solid transparent;
+  opacity: 0.65;
+  cursor: pointer;
+  transition: all 0.2s var(--ease-smooth);
+}
+
+.mobile-gallery-thumb.active {
+  border-color: var(--nesta-teal);
+  opacity: 1;
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(14, 103, 112, 0.25);
 }
 
 .bento-item-large {

@@ -41,7 +41,7 @@ const CONFIG = {
   // Scroll "Enter The Room" Frame Sequence Configuration
   frames: {
     frameCountDesktop: 119,
-    frameCountMobile: 79,
+    frameCountMobile: 119,
     baseUrlDesktop: "assets/frames",
     baseUrlMobile: "assets/frames-mobile",
     prefix: "frame_",

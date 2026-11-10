@@ -191,9 +191,13 @@
 
     // Resize canvas with devicePixelRatio
     function resizeCanvas() {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const dpr = Math.min(window.devicePixelRatio || 1, 2.5);
       canvas.width = window.innerWidth * dpr;
       canvas.height = window.innerHeight * dpr;
+      if (AppState.canvasContext) {
+        AppState.canvasContext.imageSmoothingEnabled = true;
+        AppState.canvasContext.imageSmoothingQuality = 'high';
+      }
       if (AppState.imagesCache[AppState.currentFrameIndex]) {
         drawFrameToCanvas(AppState.imagesCache[AppState.currentFrameIndex]);
       }
@@ -316,6 +320,8 @@
     const ctx = AppState.canvasContext;
     if (!canvas || !ctx || !img) return;
 
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     // Object-fit: cover algorithm
@@ -460,14 +466,28 @@
 
       return `
         <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
-          <div class="unit-card">
-            <div class="unit-card-media">
+          <div class="unit-card" data-unit-id="${u.id}">
+            <div class="unit-card-media" role="button" tabindex="0" onclick="if(!event.target.closest('.unit-card-photos-badge')) window.location.hash='#/unit/${u.id}'" title="${t.unitsSection.viewDetails}">
               <img src="${u.images[0]}" alt="${title}" class="unit-card-img" loading="lazy" />
               <span class="unit-card-city-badge"><i class="bi bi-geo-alt-fill me-1"></i>${city}</span>
               <span class="unit-card-style-badge">${styleName}</span>
+              <button type="button" class="unit-card-photos-badge" data-gallery-target="gallery-${u.id}" title="${t.unitDetails.showAllPhotos}">
+                <i class="bi bi-images"></i>
+                <span>${u.images.length} ${isAr ? 'صور' : 'photos'}</span>
+              </button>
             </div>
+
+            <!-- Hidden gallery anchors for GLightbox card gallery -->
+            <div class="d-none">
+              ${u.images.map((img, idx) => `
+                <a href="${img}" class="glightbox" data-gallery="gallery-${u.id}" data-title="${title} (${idx + 1}/${u.images.length})"></a>
+              `).join('')}
+            </div>
+
             <div class="unit-card-body">
-              <h3 class="unit-card-title">${title}</h3>
+              <h3 class="unit-card-title">
+                <a href="#/unit/${u.id}" class="text-decoration-none text-reset">${title}</a>
+              </h3>
               <div class="unit-card-location">
                 <i class="bi bi-geo-alt"></i>
                 <span>${district} · ${city}</span>
@@ -524,6 +544,25 @@
         toggleCompareUnit(id);
       });
     });
+
+    // Attach card photo badge gallery triggers
+    grid.querySelectorAll('.unit-card-photos-badge').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const galleryTarget = btn.getAttribute('data-gallery-target');
+        const firstLink = document.querySelector(`a.glightbox[data-gallery="${galleryTarget}"]`);
+        if (firstLink) firstLink.click();
+      });
+    });
+
+    if (window.GLightbox) {
+      window.GLightbox({
+        selector: '.glightbox',
+        touchNavigation: true,
+        loop: true
+      });
+    }
   }
 
   /* ==========================================================================
@@ -658,36 +697,73 @@
           </div>
         </div>
 
-        <!-- Bento Photo Gallery (1 large + 4 small) with GLightbox -->
-        <div class="bento-gallery">
+        <!-- Desktop Bento Photo Gallery (>= 768px) -->
+        <div class="bento-gallery desktop-unit-gallery">
           <div class="bento-item bento-item-large">
-            <a href="${unit.images[0]}" class="glightbox" data-gallery="unit-gallery">
+            <a href="${unit.images[0]}" class="glightbox" data-gallery="unit-gallery" data-title="${title} (1/${unit.images.length})">
               <img src="${unit.images[0]}" alt="${title}" class="bento-img" />
             </a>
           </div>
           <div class="bento-item">
-            <a href="${unit.images[1] || unit.images[0]}" class="glightbox" data-gallery="unit-gallery">
+            <a href="${unit.images[1] || unit.images[0]}" class="glightbox" data-gallery="unit-gallery" data-title="${title} (2/${unit.images.length})">
               <img src="${unit.images[1] || unit.images[0]}" alt="${title}" class="bento-img" />
             </a>
           </div>
           <div class="bento-item">
-            <a href="${unit.images[2] || unit.images[0]}" class="glightbox" data-gallery="unit-gallery">
+            <a href="${unit.images[2] || unit.images[0]}" class="glightbox" data-gallery="unit-gallery" data-title="${title} (3/${unit.images.length})">
               <img src="${unit.images[2] || unit.images[0]}" alt="${title}" class="bento-img" />
             </a>
           </div>
           <div class="bento-item">
-            <a href="${unit.images[3] || unit.images[0]}" class="glightbox" data-gallery="unit-gallery">
+            <a href="${unit.images[3] || unit.images[0]}" class="glightbox" data-gallery="unit-gallery" data-title="${title} (4/${unit.images.length})">
               <img src="${unit.images[3] || unit.images[0]}" alt="${title}" class="bento-img" />
             </a>
           </div>
           <div class="bento-item position-relative">
-            <a href="${unit.images[4] || unit.images[0]}" class="glightbox" data-gallery="unit-gallery">
+            <a href="${unit.images[4] || unit.images[0]}" class="glightbox" data-gallery="unit-gallery" data-title="${title} (5/${unit.images.length})">
               <img src="${unit.images[4] || unit.images[0]}" alt="${title}" class="bento-img" />
             </a>
-            <button class="btn-show-all-photos" onclick="document.querySelector('.bento-item .glightbox').click()">
+            <button class="btn-show-all-photos" onclick="document.querySelector('.desktop-unit-gallery .glightbox').click()">
               <i class="bi bi-grid-3x3-gap"></i>
               <span>${t.unitDetails.showAllPhotos}</span>
             </button>
+          </div>
+        </div>
+
+        <!-- Mobile Interactive Photo Gallery (< 768px) -->
+        <div class="mobile-unit-gallery">
+          <div class="mobile-gallery-stage">
+            <a href="${unit.images[0]}" class="glightbox d-block w-100 h-100" id="mobile-gallery-link" data-gallery="unit-gallery-mobile">
+              <img src="${unit.images[0]}" alt="${title}" class="mobile-gallery-img" id="mobile-gallery-main-img" />
+            </a>
+            <span class="mobile-gallery-badge">
+              <i class="bi bi-camera"></i>
+              <span id="mobile-gallery-counter">1 / ${unit.images.length}</span>
+            </span>
+            <button type="button" class="mobile-gallery-btn-prev" id="btn-mobile-prev" aria-label="Previous image">
+              <i class="bi ${isAr ? 'bi-chevron-right' : 'bi-chevron-left'}"></i>
+            </button>
+            <button type="button" class="mobile-gallery-btn-next" id="btn-mobile-next" aria-label="Next image">
+              <i class="bi ${isAr ? 'bi-chevron-left' : 'bi-chevron-right'}"></i>
+            </button>
+            <button class="btn-show-all-photos" onclick="document.querySelector('#mobile-gallery-link').click()">
+              <i class="bi bi-arrows-fullscreen"></i>
+              <span>${t.unitDetails.showAllPhotos}</span>
+            </button>
+          </div>
+
+          <!-- Thumbnails Row -->
+          <div class="mobile-gallery-thumbs" id="mobile-gallery-thumbs">
+            ${unit.images.map((img, idx) => `
+              <img src="${img}" class="mobile-gallery-thumb ${idx === 0 ? 'active' : ''}" data-index="${idx}" alt="${title} ${idx + 1}" />
+            `).join('')}
+          </div>
+
+          <!-- Hidden anchors for full mobile gallery -->
+          <div class="d-none" id="mobile-gallery-hidden-links">
+            ${unit.images.slice(1).map((img, idx) => `
+              <a href="${img}" class="glightbox" data-gallery="unit-gallery-mobile" data-title="${title} (${idx + 2}/${unit.images.length})"></a>
+            `).join('')}
           </div>
         </div>
 
@@ -877,6 +953,38 @@
         loop: true
       });
     }
+
+    // Mobile interactive gallery controller
+    let currentMobilePhotoIdx = 0;
+    const mobileImg = document.getElementById('mobile-gallery-main-img');
+    const mobileLink = document.getElementById('mobile-gallery-link');
+    const mobileCounter = document.getElementById('mobile-gallery-counter');
+    const thumbs = document.querySelectorAll('.mobile-gallery-thumb');
+
+    function setMobilePhoto(idx) {
+      if (!unit.images || unit.images.length === 0) return;
+      if (idx < 0) idx = unit.images.length - 1;
+      if (idx >= unit.images.length) idx = 0;
+      currentMobilePhotoIdx = idx;
+      if (mobileImg) mobileImg.src = unit.images[currentMobilePhotoIdx];
+      if (mobileLink) mobileLink.href = unit.images[currentMobilePhotoIdx];
+      if (mobileCounter) mobileCounter.textContent = `${currentMobilePhotoIdx + 1} / ${unit.images.length}`;
+      thumbs.forEach((th, i) => {
+        th.classList.toggle('active', i === currentMobilePhotoIdx);
+      });
+    }
+
+    const prevBtn = document.getElementById('btn-mobile-prev');
+    const nextBtn = document.getElementById('btn-mobile-next');
+    if (prevBtn) prevBtn.addEventListener('click', (e) => { e.preventDefault(); setMobilePhoto(currentMobilePhotoIdx - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', (e) => { e.preventDefault(); setMobilePhoto(currentMobilePhotoIdx + 1); });
+
+    thumbs.forEach(th => {
+      th.addEventListener('click', () => {
+        const idx = parseInt(th.getAttribute('data-index'), 10);
+        if (!isNaN(idx)) setMobilePhoto(idx);
+      });
+    });
 
     // Attach cozy lighting toggle
     const cozyBtn = document.getElementById('btn-toggle-cozy');
