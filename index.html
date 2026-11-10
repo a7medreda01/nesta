@@ -1,0 +1,856 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO & Metadata -->
+    <title>Nesta Spaces | نيستا - مساحات سكنية دافئة</title>
+    <meta name="description" content="Nesta Spaces (نيستا) - Premium short-term & long-term residential boutique apartments in Khobar, Dammam, and Al-Ahsa, Saudi Arabia." />
+    <meta property="og:title" content="Nesta Spaces | نيستا - مساحات سكنية دافئة" />
+    <meta property="og:description" content="Nesta Spaces (نيستا) - Premium short-term & long-term residential boutique apartments in Khobar, Dammam, and Al-Ahsa, Saudi Arabia." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/logo.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/png" href="assets/logo.png" />
+
+    <!-- Schema.org Structured Data (LodgingBusiness) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LodgingBusiness",
+      "name": "Nesta Spaces",
+      "alternateName": "نيستا",
+      "description": "Premium boutique furnished apartments for short and long-term stays in Khobar, Dammam, and Al-Ahsa.",
+      "telephone": "+966570262130",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "Eastern Province",
+        "addressCountry": "SA"
+      },
+      "priceRange": "$$"
+    }
+    </script>
+
+    <!-- Bootstrap 5.3.3 CSS (RTL by default, dynamic swap on EN) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" id="bootstrap-css" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <!-- Swiper 11 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- GLightbox CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+    <!-- AOS (Animate on Scroll) CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    
+    <!-- Application Main Stylesheet -->
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="bg-nest-pattern">
+
+    <!-- Scroll Progress Indicator -->
+    <div id="scroll-progress"></div>
+
+    <!-- Custom Cursor (Desktop Only) -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-trail"></div>
+
+    <!-- Page Load Splash Screen with Logo Drawing Animation -->
+    <div id="splash-screen">
+      <div class="splash-logo-wrap">
+        <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Stylized Nest Bowl Path -->
+          <path class="splash-bowl-path" d="M15 55C18 72 38 85 50 85C62 85 82 72 85 55C75 62 58 66 50 66C42 66 25 62 15 55Z" stroke="#ffffff" stroke-width="3" stroke-linecap="round" fill="none"/>
+          <path class="splash-bowl-path" d="M22 62C26 73 40 80 50 80C60 80 74 73 78 62C70 66 56 68 50 68C44 68 30 66 22 62Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <!-- 3 Floating Leaves -->
+          <path class="splash-leaf" d="M48 24C44 26 43 32 47 35C51 38 56 34 54 28C53 25 50 23 48 24Z" fill="#ffffff"/>
+          <path class="splash-leaf" style="animation-delay: 1s;" d="M38 34C35 36 34 40 37 43C40 46 45 43 43 38C42 35 40 33 38 34Z" fill="#ffffff"/>
+          <path class="splash-leaf" style="animation-delay: 1.2s;" d="M62 38C60 36 56 37 55 41C54 45 58 47 61 45C63 43 64 40 62 38Z" fill="#ffffff"/>
+        </svg>
+      </div>
+      <div class="splash-text">NESTA</div>
+      <div class="splash-subtext">نيستا · مساحات سكنية دافئة</div>
+    </div>
+
+    <!-- STICKY NAVBAR -->
+    <header>
+      <nav class="navbar navbar-expand-lg nesta-navbar">
+        <div class="container">
+          <!-- Brand Logo & Name -->
+          <a class="navbar-brand-wrap" href="#/">
+            <img src="assets/logo.png" alt="Nesta Spaces" class="navbar-logo-img" onerror="this.style.display='none'" />
+            <div class="navbar-brand-text">
+              <span class="navbar-brand-title">NESTA</span>
+              <span class="navbar-brand-sub" data-i18n="brandSub">مساحات سكنية دافئة</span>
+            </div>
+          </a>
+
+          <!-- Mobile Hamburger Toggle -->
+          <button class="navbar-toggler border-0 text-white shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#nestaNavOffcanvas" aria-controls="nestaNavOffcanvas">
+            <i class="bi bi-list fs-1"></i>
+          </button>
+
+          <!-- Desktop Navigation Links -->
+          <div class="collapse navbar-collapse justify-content-center d-none d-lg-flex" id="navbarNav">
+            <ul class="navbar-nav align-items-center gap-1">
+              <li class="nav-item">
+                <a class="nav-link" href="#/" data-i18n="nav.home">الرئيسية</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#enter-nesta" data-i18n="nav.enterRoom">تجربة الدخول</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#units" data-i18n="nav.units">وحداتنا</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#vibe" data-i18n="nav.vibe">اختر طابعك</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#why" data-i18n="nav.whyNesta">لماذا نيستا</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#locations" data-i18n="nav.locations">المدن</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#faq" data-i18n="nav.faq">الأسئلة الشائعة</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Desktop Actions: Language Toggle & WhatsApp CTA -->
+          <div class="d-none d-lg-flex align-items-center gap-3">
+            <button id="btn-lang-toggle" class="btn-lang-toggle" data-i18n="nav.langToggle">
+              English
+            </button>
+            <a href="https://wa.me/966570262130" target="_blank" rel="noopener noreferrer" class="btn-wa-pill">
+              <i class="bi bi-whatsapp"></i>
+              <span data-i18n="nav.bookWhatsApp">احجز عبر واتساب</span>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Mobile Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start bg-nesta-ink text-white" tabindex="-1" id="nestaNavOffcanvas" aria-labelledby="offcanvasLabel" style="background-color: var(--nesta-ink)">
+      <div class="offcanvas-header border-bottom border-secondary border-opacity-25 p-4">
+        <div class="d-flex align-items-center gap-2">
+          <img src="assets/logo.png" alt="Nesta" style="width:36px; height:36px; border-radius:8px;" />
+          <span class="fs-4 serif-heading text-white">NESTA</span>
+        </div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body p-4 d-flex flex-direction-column justify-content-between">
+        <ul class="nav flex-column gap-3 fs-5 mb-5">
+          <li class="nav-item">
+            <a class="nav-link text-white p-0" href="#/" data-bs-dismiss="offcanvas" data-i18n="nav.home">الرئيسية</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white p-0" href="#enter-nesta" data-bs-dismiss="offcanvas" data-i18n="nav.enterRoom">تجربة الدخول</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white p-0" href="#units" data-bs-dismiss="offcanvas" data-i18n="nav.units">وحداتنا</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white p-0" href="#vibe" data-bs-dismiss="offcanvas" data-i18n="nav.vibe">اختر طابعك</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white p-0" href="#why" data-bs-dismiss="offcanvas" data-i18n="nav.whyNesta">لماذا نيستا</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white p-0" href="#locations" data-bs-dismiss="offcanvas" data-i18n="nav.locations">المدن</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white p-0" href="#faq" data-bs-dismiss="offcanvas" data-i18n="nav.faq">الأسئلة الشائعة</a>
+          </li>
+        </ul>
+
+        <div class="d-flex flex-column gap-3 mt-auto">
+          <button class="btn btn-outline-light rounded-pill w-100" onclick="window.NestaApp.toggleLanguage()" data-bs-dismiss="offcanvas" data-i18n="nav.langToggle">
+            English
+          </button>
+          <a href="https://wa.me/966570262130" target="_blank" rel="noopener noreferrer" class="btn btn-wa-pill w-100 justify-content-center py-3">
+            <i class="bi bi-whatsapp"></i>
+            <span data-i18n="nav.bookWhatsApp">احجز عبر واتساب</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- =====================================================================
+         MAIN HOMEPAGE VIEW CONTAINER
+         ===================================================================== -->
+    <main id="main-homepage-view">
+
+      <!-- SECTION A: HERO SECTION WITH SWIPER FADE & FLOATING LEAVES -->
+      <section class="hero-section">
+        <!-- Background Swiper Slider -->
+        <div class="hero-slider-wrap">
+          <div class="swiper hero-swiper" id="hero-swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="hero-slide-bg" style="background-image: url('assets/units/sand-1.png');"></div>
+              </div>
+              <div class="swiper-slide">
+                <div class="hero-slide-bg" style="background-image: url('assets/units/sage-2.png');"></div>
+              </div>
+              <div class="swiper-slide">
+                <div class="hero-slide-bg" style="background-image: url('assets/units/blush-1.png');"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Teal Brand Gradient Overlay -->
+        <div class="hero-gradient-overlay"></div>
+
+        <!-- Hero Content -->
+        <div class="container hero-content">
+          <div class="row">
+            <div class="col-lg-8" data-aos="fade-up">
+              <div class="hero-badge-pill">
+                <i class="bi bi-stars text-warning"></i>
+                <span data-i18n="hero.badge">ضيافة بوتيكية فاخرة · المنطقة الشرقية</span>
+              </div>
+              <h1 class="hero-headline serif-heading" data-i18n="hero.headline">
+                مساحتك الدافئة… أينما كنت
+              </h1>
+              <p class="hero-subheadline" data-i18n="hero.subheadline">
+                وحدات سكنية مفروشة بإقامة تليق بك في الخبر · الدمام · الأحساء
+              </p>
+              <div class="d-flex flex-wrap align-items-center gap-3">
+                <a href="#units" class="btn-nesta-teal">
+                  <i class="bi bi-door-open"></i>
+                  <span data-i18n="hero.ctaBrowse">تصفح الوحدات</span>
+                </a>
+                <a href="https://wa.me/966570262130" target="_blank" rel="noopener noreferrer" class="btn-nesta-outline">
+                  <i class="bi bi-whatsapp"></i>
+                  <span data-i18n="hero.ctaWhatsApp">تواصل واتساب</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scroll Indicator Hint -->
+        <a href="#enter-nesta" class="hero-scroll-indicator">
+          <div class="mouse-icon">
+            <div class="mouse-wheel"></div>
+          </div>
+          <span data-i18n="hero.scrollHint">مرر لاكتشاف غرفتك</span>
+        </a>
+      </section>
+
+      <!-- GLASS-MORPHISM QUICK SEARCH BAR -->
+      <section class="hero-search-wrap">
+        <div class="container">
+          <div class="quick-search-box">
+            <form id="quick-search-form" class="row g-3 align-items-end">
+              <!-- City Dropdown -->
+              <div class="col-lg-3 col-md-6 search-field-group">
+                <label data-i18n="search.cityLabel">المدينة</label>
+                <select id="search-city" class="form-select">
+                  <option value="all" data-i18n="search.cityAll">جميع المدن (الخبر، الدمام، الأحساء)</option>
+                  <option value="khobar">الخبر</option>
+                  <option value="dammam">الدمام</option>
+                  <option value="ahsa">الأحساء</option>
+                </select>
+              </div>
+
+              <!-- Unit Type Dropdown -->
+              <div class="col-lg-3 col-md-6 search-field-group">
+                <label data-i18n="search.typeLabel">نوع الوحدة</label>
+                <select id="search-type" class="form-select">
+                  <option value="all" data-i18n="search.typeAll">جميع الأنواع (شقة، جناح، استوديو)</option>
+                  <option value="apartment" data-i18n="search.typeApartment">شقة سكنية</option>
+                  <option value="suite" data-i18n="search.typeSuite">جناح فندقي</option>
+                  <option value="studio" data-i18n="search.typeStudio">استوديو دافئ</option>
+                </select>
+              </div>
+
+              <!-- Style / Vibe Dropdown -->
+              <div class="col-lg-2 col-md-6 search-field-group">
+                <label data-i18n="search.styleLabel">الطابع اللوني</label>
+                <select id="search-style" class="form-select">
+                  <option value="all" data-i18n="search.styleAll">جميع الطوابع</option>
+                  <option value="sand" data-i18n="search.styleSand">طابع ساند (بيج وخشبي)</option>
+                  <option value="sage" data-i18n="search.styleSage">طابع سيج (أخضر هادئ)</option>
+                  <option value="blush" data-i18n="search.styleBlush">طابع بلش (تراكوتا ووردي)</option>
+                </select>
+              </div>
+
+              <!-- Guests Dropdown -->
+              <div class="col-lg-2 col-md-6 search-field-group">
+                <label data-i18n="search.guestsLabel">الضيوف</label>
+                <select id="search-guests" class="form-select">
+                  <option value="0" data-i18n="search.guestsAny">أي عدد ضيوف</option>
+                  <option value="2">2+ ضيوف</option>
+                  <option value="3">3+ ضيوف</option>
+                  <option value="4">4+ ضيوف</option>
+                </select>
+              </div>
+
+              <!-- Search Button -->
+              <div class="col-lg-2 col-md-12">
+                <button type="submit" class="btn btn-nesta-teal w-100 py-2">
+                  <i class="bi bi-search"></i>
+                  <span data-i18n="search.btnSearch">بحث وتصفية</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           SECTION B: SIGNATURE FEATURE - SCROLL "ENTER THE ROOM" EXPERIENCE
+           ===================================================================== -->
+      <section id="enter-nesta">
+        <div class="enter-canvas-container">
+          <!-- Canvas drawing 119/79 frames controlled by GSAP ScrollTrigger -->
+          <canvas id="enter-room-canvas"></canvas>
+
+          <!-- Thin Preload Progress Bar -->
+          <div class="enter-preload-bar"></div>
+
+          <!-- Cinematic Vignette & Light Leak Overlays -->
+          <div class="enter-vignette"></div>
+          <div class="enter-light-leak"></div>
+
+          <!-- Vertical Scroll Progress Tracker Line on Side -->
+          <div class="enter-scroll-progress-line">
+            <div class="enter-scroll-progress-dot"></div>
+          </div>
+
+          <!-- Overlaid Story Steps Synced to Scroll Progress -->
+          <!-- Step 0 (0-15%): Positioned low to preserve visibility of door logo -->
+          <div id="step-0" class="enter-overlay-step active">
+            <h3 class="enter-step-title serif-heading" data-i18n="enterRoom.step0">كل رحلة تبدأ بباب…</h3>
+            <p class="enter-step-sub" data-i18n="enterRoom.step0Sub">مرر للأسفل وافتح باب إقامتك القادمة مع نيستا</p>
+          </div>
+
+          <!-- Step 1 (15-45%): Door opening -->
+          <div id="step-1" class="enter-overlay-step">
+            <h3 class="enter-step-title serif-heading" data-i18n="enterRoom.step1">نيستا… بيتك الثاني</h3>
+            <p class="enter-step-sub" data-i18n="enterRoom.step1Sub">أجواء استرخاء مصممة بعناية فائقة لتشعرك وكأنك في منزلك</p>
+          </div>
+
+          <!-- Step 2 (45-75%): Inside room & warm details -->
+          <div id="step-2" class="enter-overlay-step">
+            <h3 class="enter-step-title serif-heading" data-i18n="enterRoom.step2">تفاصيل دافئة تنتظرك</h3>
+            <p class="enter-step-sub" data-i18n="enterRoom.step2Sub">إضاءة ناعمة، أسرّة فندقية وثيره، وركن قهوة يرحب بصباحك</p>
+            <div class="enter-feature-chips">
+              <span class="enter-feature-chip"><i class="bi bi-lamp"></i> <span data-i18n="enterRoom.chipComfort">راحة فندقية</span></span>
+              <span class="enter-feature-chip"><i class="bi bi-cup-hot"></i> <span data-i18n="enterRoom.chipCoffee">ركن قهوة فاخر</span></span>
+              <span class="enter-feature-chip"><i class="bi bi-wifi"></i> <span data-i18n="enterRoom.chipWifi">فايبر سريع</span></span>
+            </div>
+          </div>
+
+          <!-- Step 3 (75-100%): Call to action -->
+          <div id="step-3" class="enter-overlay-step">
+            <h3 class="enter-step-title serif-heading" data-i18n="enterRoom.step3">جاهز لتجربة الاسترخاء؟</h3>
+            <p class="enter-step-sub" data-i18n="enterRoom.step3Sub">اختر وحدتك المفضلة الآن واستمتع بإقامة هادئة</p>
+            <div class="d-flex justify-content-center gap-3 mt-3">
+              <a href="#units" class="btn btn-nesta-wood btn-sm px-4">
+                <span data-i18n="enterRoom.btnExplore">تصفح الوحدات</span>
+              </a>
+              <a href="https://wa.me/966570262130" target="_blank" rel="noopener noreferrer" class="btn btn-wa-pill btn-sm px-4">
+                <i class="bi bi-whatsapp"></i>
+                <span data-i18n="enterRoom.btnBookNow">احجز عبر واتساب</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION C: STATS STRIP -->
+      <section class="stats-strip">
+        <div class="container">
+          <div class="row g-4 justify-content-center">
+            <div class="col-6 col-lg-3 stat-item">
+              <div class="stat-number" data-i18n="stats.units">+12 وحدة جاهزة</div>
+              <div class="stat-label" data-i18n="stats.unitsSub">مفروشة بالكامل ومجهزة</div>
+            </div>
+            <div class="col-6 col-lg-3 stat-item">
+              <div class="stat-number" data-i18n="stats.cities">3 مدن رئيسية</div>
+              <div class="stat-label" data-i18n="stats.citiesSub">الخبر · الدمام · الأحساء</div>
+            </div>
+            <div class="col-6 col-lg-3 stat-item">
+              <div class="stat-number" data-i18n="stats.support">دعم 24/7</div>
+              <div class="stat-label" data-i18n="stats.supportSub">خدمة ضيوف فورية عبر واتساب</div>
+            </div>
+            <div class="col-6 col-lg-3 stat-item">
+              <div class="stat-number" data-i18n="stats.clean">100% نظافة فندقية</div>
+              <div class="stat-label" data-i18n="stats.cleanSub">تعقيم شامل وبياضات قطنية</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION D: "PICK YOUR VIBE" INTERACTIVE CARDS -->
+      <section id="vibe" class="vibe-section">
+        <div class="container">
+          <div class="text-center max-w-2xl mx-auto mb-5" data-aos="fade-up">
+            <h2 class="serif-heading display-6 fw-bold mb-2" data-i18n="vibe.title">اختر طابعك المفضل</h2>
+            <p class="text-muted" data-i18n="vibe.subtitle">كل تصميم يعكس حالة شعورية مختلفة، اختر الأجواء التي تناسب ذوقك لنعرض لك وحداتها.</p>
+          </div>
+          <!-- Vibe Cards dynamically injected -->
+          <div class="row justify-content-center" id="vibe-cards-wrap"></div>
+        </div>
+      </section>
+
+      <!-- SECTION E: FEATURED UNITS GRID (#units) -->
+      <section id="units" class="units-section">
+        <div class="container">
+          <div class="text-center max-w-2xl mx-auto mb-4" data-aos="fade-up">
+            <h2 class="serif-heading display-6 fw-bold mb-2" data-i18n="unitsSection.title">وحداتنا المختارة بعناية</h2>
+            <p class="text-muted" data-i18n="unitsSection.subtitle">كل وحدة في نيستا تحكي قصة من الراحة والجمال، صُممت بعناية لتكون ملاذك الآمن.</p>
+          </div>
+
+          <!-- City & Type Filter Tabs -->
+          <div class="filter-tabs-wrap" data-aos="fade-up">
+            <button class="filter-btn active" data-filter="all" data-i18n="unitsSection.filterAll">الكل</button>
+            <button class="filter-btn" data-filter="khobar" data-i18n="unitsSection.filterKhobar">الخبر</button>
+            <button class="filter-btn" data-filter="dammam" data-i18n="unitsSection.filterDammam">الدمام</button>
+            <button class="filter-btn" data-filter="ahsa" data-i18n="unitsSection.filterAhsa">الأحساء</button>
+            <button class="filter-btn" data-filter="apartment" data-i18n="unitsSection.filterApartment">شقق</button>
+            <button class="filter-btn" data-filter="suite" data-i18n="unitsSection.filterSuite">أجنحة</button>
+            <button class="filter-btn" data-filter="studio" data-i18n="unitsSection.filterStudio">استوديوهات</button>
+          </div>
+
+          <!-- Units Grid -->
+          <div class="row" id="units-grid"></div>
+        </div>
+      </section>
+
+      <!-- SECTION F: WHY NESTA (6 VALUE PROPS) -->
+      <section id="why" class="why-section">
+        <div class="container">
+          <div class="text-center max-w-2xl mx-auto mb-5" data-aos="fade-up">
+            <h2 class="serif-heading display-6 fw-bold mb-2" data-i18n="why.title">لماذا تختار نيستا؟</h2>
+            <p class="text-muted" data-i18n="why.subtitle">معايير ضيافة استثنائية تُشعرك بالألفة والراحة من أول لحظة.</p>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-lg-4 col-md-6" data-aos="fade-up">
+              <div class="why-card">
+                <div class="nesta-icon-badge mb-3"><i class="bi bi-stars"></i></div>
+                <h4 class="fw-bold mb-2" data-i18n="why.prop1Title">مفروشة بالكامل وبأعلى جودة</h4>
+                <p class="text-muted small mb-0" data-i18n="why.prop1Desc">أثاث مدروس بعناية، أقمشة طبيعية مريحة، وأجهزة منزلية متكاملة تضمن إقامة سهلة وممتعة.</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+              <div class="why-card">
+                <div class="nesta-icon-badge mb-3"><i class="bi bi-shield-check"></i></div>
+                <h4 class="fw-bold mb-2" data-i18n="why.prop2Title">نظافة وتعقيم فندقي صارم</h4>
+                <p class="text-muted small mb-0" data-i18n="why.prop2Desc">فريق نظافة محترف يقوم بالتعقيم العميق وتبديل البياضات والمناشف بقطن 100% قبل كل ضيف.</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+              <div class="why-card">
+                <div class="nesta-icon-badge mb-3"><i class="bi bi-key"></i></div>
+                <h4 class="fw-bold mb-2" data-i18n="why.prop3Title">دخول ذاتي ذكي وسلس</h4>
+                <p class="text-muted small mb-0" data-i18n="why.prop3Desc">لا داعي للانتظار لتسليم المفاتيح؛ استلم رمز الدخول السري عبر واتساب وادخل في أي وقت.</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up">
+              <div class="why-card">
+                <div class="nesta-icon-badge mb-3"><i class="bi bi-geo-alt-fill"></i></div>
+                <h4 class="fw-bold mb-2" data-i18n="why.prop4Title">مواقع استراتيجية مميزة</h4>
+                <p class="text-muted small mb-0" data-i18n="why.prop4Desc">في أرقى أحياء الخبر والدمام والأحساء، بالقرب من البحر، أرقى المجمعات، ومراكز الأعمال.</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+              <div class="why-card">
+                <div class="nesta-icon-badge mb-3"><i class="bi bi-headset"></i></div>
+                <h4 class="fw-bold mb-2" data-i18n="why.prop5Title">دعم فوري على مدار 24/7</h4>
+                <p class="text-muted small mb-0" data-i18n="why.prop5Desc">فريق خدمة الضيوف في خدمتك طوال فترة إقامتك عبر واتساب للرد على أي طلب خلال دقائق.</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+              <div class="why-card">
+                <div class="nesta-icon-badge mb-3"><i class="bi bi-house-heart"></i></div>
+                <h4 class="fw-bold mb-2" data-i18n="why.prop6Title">دفء المنزل برقي الفندق</h4>
+                <p class="text-muted small mb-0" data-i18n="why.prop6Desc">إضاءات دافئة خافتة، رفوف خشبية مزينة بالنباتات واللوحات، وزاوية قهوة خاصة بكل وحدة.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION G: HOW IT WORKS (3 ANIMATED STEPS) -->
+      <section id="how" class="how-section">
+        <div class="container">
+          <div class="text-center max-w-2xl mx-auto mb-5" data-aos="fade-up">
+            <h2 class="serif-heading display-6 fw-bold mb-2" data-i18n="how.title">كيف تحجز إقامتك؟</h2>
+            <p class="text-muted" data-i18n="how.subtitle">ثلاث خطوات بسيطة فقط تفصلك عن مساحتك الدافئة.</p>
+          </div>
+
+          <div class="row g-4 justify-content-center">
+            <div class="col-lg-4 col-md-6" data-aos="fade-up">
+              <div class="step-card bg-white rounded-4 shadow-sm h-100">
+                <div class="step-number-badge" data-i18n="how.step1Num">01</div>
+                <h4 class="fw-bold mb-2" data-i18n="how.step1Title">اختر وحدتك المناسبة</h4>
+                <p class="text-muted small mb-0" data-i18n="how.step1Desc">تصفح وحداتنا في الخبر والدمام والأحساء واختر الطابع والمساحة التي تلائمك.</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
+              <div class="step-card bg-white rounded-4 shadow-sm h-100">
+                <div class="step-number-badge" data-i18n="how.step2Num">02</div>
+                <h4 class="fw-bold mb-2" data-i18n="how.step2Title">تواصل معنا عبر واتساب</h4>
+                <p class="text-muted small mb-0" data-i18n="how.step2Desc">اضغط زر الحجز وسيتجهز نص تلقائي يحتوي على اسم الوحدة وتواريخك لتأكيد التوافر فوراً.</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+              <div class="step-card bg-white rounded-4 shadow-sm h-100">
+                <div class="step-number-badge" data-i18n="how.step3Num">03</div>
+                <h4 class="fw-bold mb-2" data-i18n="how.step3Title">استلم الرمز واستمتع بإقامتك</h4>
+                <p class="text-muted small mb-0" data-i18n="how.step3Desc">يصلك رقم الدخول السري وتفاصيل الموقع؛ افتح الباب واستمتع بدفء نيستا.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION H: LOCATIONS (KHOBAR, DAMMAM, AL-AHSA) -->
+      <section id="locations" class="locations-section">
+        <div class="container">
+          <div class="text-center max-w-2xl mx-auto mb-5" data-aos="fade-up">
+            <h2 class="serif-heading display-6 fw-bold mb-2" data-i18n="locations.title">مدننا في المنطقة الشرقية</h2>
+            <p class="text-muted" data-i18n="locations.subtitle">نستقبلك في ثلاث من أجمل مدن المملكة بكل حفاوة.</p>
+          </div>
+          <!-- Locations cards injected -->
+          <div class="row" id="locations-wrap"></div>
+        </div>
+      </section>
+
+      <!-- SECTION I: GUEST MOMENTS / GALLERY -->
+      <section id="gallery" class="moments-section">
+        <div class="container">
+          <div class="text-center max-w-2xl mx-auto mb-5" data-aos="fade-up">
+            <h2 class="serif-heading display-6 fw-bold mb-2" data-i18n="gallery.title">أجواء وتفاصيل من قلب نيستا</h2>
+            <p class="text-muted" data-i18n="gallery.subtitle">لقطات واقعية من ديكورات وحداتنا، زوايا القهوة، والإضاءة الدافئة التي تصنع الفرق.</p>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-lg-3 col-md-6" data-aos="fade-up">
+              <div class="moment-card">
+                <a href="assets/units/sand-3.png" class="glightbox" data-gallery="moments">
+                  <img src="assets/units/sand-3.png" alt="Coffee Corner" />
+                </a>
+                <div class="moment-caption" data-i18n="gallery.momentCoffee">ركن القهوة الصباحي</div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+              <div class="moment-card">
+                <a href="assets/units/sand-4.png" class="glightbox" data-gallery="moments">
+                  <img src="assets/units/sand-4.png" alt="Arched Niche" />
+                </a>
+                <div class="moment-caption" data-i18n="gallery.momentNiche">النيش المقوس بإضاءته الدافئة</div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+              <div class="moment-card">
+                <a href="assets/units/sage-2.png" class="glightbox" data-gallery="moments">
+                  <img src="assets/units/sage-2.png" alt="Plush Bed" />
+                </a>
+                <div class="moment-caption" data-i18n="gallery.momentBed">أسرّة فندقية بلمسات كتان طبيعية</div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+              <div class="moment-card">
+                <a href="assets/units/blush-3.png" class="glightbox" data-gallery="moments">
+                  <img src="assets/units/blush-3.png" alt="Floating Shelves" />
+                </a>
+                <div class="moment-caption" data-i18n="gallery.momentDetails">رفوف خشبية ونباتات حية تبهج النفس</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION J: TESTIMONIALS / REVIEWS -->
+      <section id="reviews" class="reviews-section">
+        <div class="container">
+          <div class="text-center max-w-2xl mx-auto mb-5" data-aos="fade-up">
+            <h2 class="serif-heading display-6 fw-bold mb-2" data-i18n="reviews.title">ماذا يقول ضيوفنا؟</h2>
+            <p class="text-muted" data-i18n="reviews.subtitle">تجارب حقيقية تعكس اهتمامنا بأدق التفاصيل وراحة ضيوف نيستا.</p>
+          </div>
+
+          <div class="swiper" id="reviews-swiper">
+            <div class="swiper-wrapper" id="reviews-swiper-wrapper"></div>
+            <div class="reviews-pagination text-center mt-4"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION K: FAQ ACCORDION -->
+      <section id="faq" class="faq-section">
+        <div class="container max-w-2xl">
+          <div class="text-center mb-5" data-aos="fade-up">
+            <h2 class="serif-heading display-6 fw-bold mb-2" data-i18n="faq.title">الأسئلة الشائعة</h2>
+            <p class="text-muted" data-i18n="faq.subtitle">إجابات واضحة لكل ما قد تتساءل عنه قبل إقامتك.</p>
+          </div>
+
+          <div class="accordion nesta-accordion" id="faqAccordion" data-aos="fade-up">
+            <!-- FAQ 1 -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="false" data-i18n="faq.q1">
+                  ما هي أوقات تسجيل الدخول والمغادرة؟
+                </button>
+              </h2>
+              <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body" data-i18n="faq.a1">
+                  يبدأ تسجيل الدخول من الساعة 3:00 مساءً، ويكون تسجيل المغادرة حتى الساعة 12:00 ظهراً. في حال رغبت بتسجيل مبكر أو متأخر، نسعد بالتنسيق معك مسبقاً عبر واتساب حسب التوافر.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" data-i18n="faq.q2">
+                  كيف تتم آلية استلام الشقة والدخول؟
+                </button>
+              </h2>
+              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body" data-i18n="faq.a2">
+                  جميع وحداتنا تعمل بنظام الدخول الذاتي الذكي. بعد تأكيد الحجز، سنرسل لك عبر واتساب رمز القفل الرقمي وموقع الوحدة بدقة، لتتمكن من الدخول مباشرة وبكل خصوصية دون الحاجة لمقابلة أحد.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" data-i18n="faq.q3">
+                  هل الحجز متاح للعائلات فقط أم للأفراد أيضاً؟
+                </button>
+              </h2>
+              <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body" data-i18n="faq.a3">
+                  نرحب بالعائلات الكريمة ورجال وسيدات الأعمال والمهنيين الباحثين عن إقامة هادئة وراقية. نشترط الالتزام التام بالهدوء والحفاظ على خصوصية الجيران في المبنى.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" data-i18n="faq.q4">
+                  ما هي سياسة الإلغاء وتعديل الحجز؟
+                </button>
+              </h2>
+              <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body" data-i18n="faq.a4">
+                  يمكن الإلغاء أو التعديل مجاناً قبل 48 ساعة من موعد تسجيل الدخول. للإلغاءات خلال أقل من 48 ساعة، يرجى التواصل مع فريق خدمة الضيوف عبر واتساب للنظر في الحالة وتسهيل الإجراءات.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false" data-i18n="faq.q5">
+                  هل توجد مواقف سيارات مخصصة؟
+                </button>
+              </h2>
+              <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body" data-i18n="faq.a5">
+                  نعم، كل وحدة في نيستا يتوفر لها موقف سيارات خاص ومظلل مخصص لضيوفنا ومسجل باسم الوحدة لضمان راحتك وسهولة وصولك.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 6 -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6" aria-expanded="false" data-i18n="faq.q6">
+                  هل تتوفر باقات وخصومات للإقامات الطويلة؟
+                </button>
+              </h2>
+              <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body" data-i18n="faq.a6">
+                  بالتأكيد! نوفر أسعاراً تفضيلية مخصصة للإقامات الأسبوعية والشهرية وللشركات والموظفين المنتدبين. تواصل معنا عبر واتساب للحصول على عرض أسعار فوري ومخصص.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION L: CTA BANNER -->
+      <section class="cta-banner-section">
+        <div class="container text-center max-w-2xl">
+          <h2 class="serif-heading display-5 fw-bold mb-3" data-i18n="ctaBanner.headline">جاهز لإقامتك القادمة؟</h2>
+          <p class="lead text-white-50 mb-4" data-i18n="ctaBanner.sub">اختر وحدتك الآن ودعنا نتكفل بجعل زيارتك للخبر أو الدمام أو الأحساء ذكرى لا تُنسى.</p>
+          <div class="d-flex flex-wrap justify-content-center gap-3">
+            <a href="https://wa.me/966570262130" target="_blank" rel="noopener noreferrer" class="btn btn-wa-pill py-3 px-4 fs-6">
+              <i class="bi bi-whatsapp fs-5"></i>
+              <span data-i18n="ctaBanner.btnWhatsApp">تواصل معنا عبر واتساب</span>
+            </a>
+            <a href="https://www.instagram.com/nesta.spaces" target="_blank" rel="noopener noreferrer" class="btn btn-nesta-outline py-3 px-4 fs-6">
+              <i class="bi bi-instagram fs-5"></i>
+              <span data-i18n="ctaBanner.btnInstagram">تابعنا على إنستغرام</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- =====================================================================
+         UNIT DETAILS DYNAMIC VIEW (#/unit/ID)
+         ===================================================================== -->
+    <main id="view-unit-details" style="display: none;"></main>
+
+    <!-- FOOTER -->
+    <footer class="nesta-footer">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-4">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <img src="assets/logo.png" alt="Nesta" style="width:40px; height:40px; border-radius:10px;" />
+              <span class="fs-3 fw-bold text-white serif-heading">NESTA</span>
+            </div>
+            <p class="text-white-50 mb-3" data-i18n="footer.aboutText">
+              نيستا سبيسز (Nesta Spaces) مساحات سكنية مفروشة بوتيكية في المنطقة الشرقية (الخبر، الدمام، الأحساء)، تمنحك دفء المنزل وفخامة الإقامة الفندقية.
+            </p>
+            <div class="d-flex align-items-center gap-3 text-white">
+              <a href="https://www.instagram.com/nesta.spaces" target="_blank" rel="noopener noreferrer" class="fs-5" title="Instagram">
+                <i class="bi bi-instagram"></i>
+              </a>
+              <a href="https://wa.me/966570262130" target="_blank" rel="noopener noreferrer" class="fs-5" title="WhatsApp">
+                <i class="bi bi-whatsapp"></i>
+              </a>
+              <a href="tel:+966570262130" class="fs-5" title="Phone">
+                <i class="bi bi-telephone"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-6">
+            <h5 class="text-white fw-bold mb-3" data-i18n="footer.quickLinks">روابط سريعة</h5>
+            <ul class="list-unstyled d-flex flex-column gap-2">
+              <li><a href="#/" data-i18n="nav.home">الرئيسية</a></li>
+              <li><a href="#enter-nesta" data-i18n="nav.enterRoom">تجربة الدخول</a></li>
+              <li><a href="#units" data-i18n="nav.units">وحداتنا</a></li>
+              <li><a href="#vibe" data-i18n="nav.vibe">اختر طابعك</a></li>
+              <li><a href="#why" data-i18n="nav.whyNesta">لماذا نيستا</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-6">
+            <h5 class="text-white fw-bold mb-3" data-i18n="footer.citiesCol">مدننا</h5>
+            <ul class="list-unstyled d-flex flex-column gap-2">
+              <li><a href="#units" onclick="window.NestaApp.AppState.selectedCity='khobar'; window.location.hash='#units';">الخبر (Khobar)</a></li>
+              <li><a href="#units" onclick="window.NestaApp.AppState.selectedCity='dammam'; window.location.hash='#units';">الدمام (Dammam)</a></li>
+              <li><a href="#units" onclick="window.NestaApp.AppState.selectedCity='ahsa'; window.location.hash='#units';">الأحساء (Al-Ahsa)</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3">
+            <h5 class="text-white fw-bold mb-3" data-i18n="footer.contactCol">تواصل معنا</h5>
+            <ul class="list-unstyled d-flex flex-column gap-2 text-white-50">
+              <li><i class="bi bi-whatsapp text-success me-2"></i> 0570262130</li>
+              <li><i class="bi bi-telephone text-teal me-2"></i> +966 57 026 2130</li>
+              <li><i class="bi bi-instagram text-danger me-2"></i> @nesta.spaces</li>
+              <li><i class="bi bi-clock text-warning me-2"></i> 24/7 خدمة الضيوف</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="nesta-footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-3">
+          <div data-i18n="footer.copyright">جميع الحقوق محفوظة © Nesta Spaces (نيستا) 2026</div>
+          <div data-i18n="footer.designedWith">صُممت بكل دفء لراحتك</div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP FAB BUTTON -->
+    <a href="https://wa.me/966570262130" target="_blank" rel="noopener noreferrer" class="whatsapp-fab" title="Chat on WhatsApp">
+      <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <!-- BACK TO TOP BUTTON -->
+    <button id="back-to-top" class="back-to-top-btn" title="Back to top">
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- FLOATING COMPARE UNITS TRAY -->
+    <div id="compare-tray" class="compare-tray"></div>
+
+    <!-- MODAL: COMPARE UNITS -->
+    <div class="modal fade" id="compareModal" tabindex="-1" aria-labelledby="compareModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content rounded-4 border-0">
+          <div class="modal-header border-0 pb-0">
+            <h5 class="modal-title fw-bold" id="compareModalLabel" data-i18n="compare.title">مقارنة الوحدات المختارة</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-4"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL: SMART WHATSAPP MESSAGE GENERATOR -->
+    <div class="modal fade" id="smartWaModal" tabindex="-1" aria-labelledby="smartWaModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-4 border-0 shadow">
+          <div class="modal-header border-0 pb-0">
+            <h5 class="modal-title fw-bold" id="smartWaModalLabel" data-i18n="smartWa.modalTitle">تأكيد الحجز والاستفسار عبر واتساب</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-4">
+            <div class="mb-3">
+              <label class="form-label text-muted small" data-i18n="smartWa.unitLabel">الوحدة المختارة:</label>
+              <div id="smart-wa-unit-name" class="fw-bold text-teal fs-6"></div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label text-muted small" data-i18n="smartWa.datesPrompt">تاريخ الوصول والمغادرة المتوقع (اختياري):</label>
+              <input type="text" id="smart-wa-dates" class="form-control rounded-3" placeholder="مثال: من 15 إلى 18 نوفمبر" />
+            </div>
+            <div class="mb-3">
+              <label class="form-label text-muted small" data-i18n="smartWa.guestsPrompt">عدد الضيوف:</label>
+              <input type="number" id="smart-wa-guests" class="form-control rounded-3" value="2" min="1" max="10" />
+            </div>
+            <div class="mb-3">
+              <label class="form-label text-muted small" data-i18n="smartWa.msgPreviewLabel">نص الرسالة التي ستُرسل إلى نيستا:</label>
+              <div id="smart-wa-preview" class="p-3 bg-light rounded-3 text-secondary small font-monospace" style="white-space: pre-wrap;"></div>
+            </div>
+            <div class="d-flex gap-2">
+              <a id="btn-launch-smart-wa" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-wa-pill flex-grow-1 justify-content-center py-2">
+                <i class="bi bi-whatsapp"></i>
+                <span data-i18n="smartWa.btnSendWa">فتح واتساب الآن</span>
+              </a>
+              <button id="btn-copy-smart-wa" class="btn btn-outline-secondary rounded-pill px-3">
+                <i class="bi bi-clipboard"></i>
+                <span data-i18n="smartWa.btnCopyText">نسخ النص</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXTERNAL SCRIPTS & LIBRARIES (CDN) -->
+    <!-- Bootstrap 5.3.3 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- GSAP 3.12.5 & ScrollTrigger -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <!-- Swiper 11 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- GLightbox JS -->
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <!-- APPLICATION SCRIPTS -->
+    <script src="/js/config.js"></script>
+    <script src="/js/units.js"></script>
+    <script src="/js/i18n.js"></script>
+    <script src="/js/app.js"></script>
+  </body>
+</html>

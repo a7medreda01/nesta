@@ -1,0 +1,6 @@
+{
+  "name": "Nesta Spaces | نيستا",
+  "description": "Nesta Spaces (نيستا) - Premium short-term & long-term residential boutique apartments in Khobar, Dammam, and Al-Ahsa, Saudi Arabia.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
